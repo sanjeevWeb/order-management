@@ -41,6 +41,7 @@ This project is a Node.js-based backend application built with Express.js and Mo
 
 Method	Endpoint	Description	Roles
 **POST**	/api/signup	User signup	All
+
 **POST**	/api/login	User login	All
 
 ### Order Management
@@ -52,15 +53,21 @@ Method	Endpoint	Description	Roles
 
 Method	Endpoint	Description	Roles
 **POST**	/api/product	Add a product	Vendor
+
 **PUT**	/api/product/:id	Update a product	Vendor
+
 **DELETE**	/api/product/:id	Delete a product	Vendor
 
 ### Analytics
 Method	Endpoint	Description	Roles
 **GET**	/api/analytics/revenue/admin	Revenue per vendor (last 30 days)	Admin
+
 **GET**	/api/analytics/product/admin	Top 5 products by sales	Admin
+
 **GET**	/api/analytics/avg-order/admin	Average order value	Admin
+
 **GET**	/api/analytics/daily-sales/vendor	Daily sales for the last 7 days	Vendor
+
 **GET**	/api/analytics/low-stock/vendor	Low stock items for the vendor	
 
 Vendor Models
