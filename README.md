@@ -40,7 +40,7 @@ This project is a Node.js-based backend application built with Express.js and Mo
 ### Authentication
 
 Method	Endpoint	Description	Roles
-POST	/api/signup	User signup	All
+**POST**	/api/signup	User signup	All
 POST	/api/login	User login	All
 
 ### Order Management
