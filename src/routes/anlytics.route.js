@@ -4,14 +4,14 @@ const { authorizeRoles } = require('../middlewares/role.middleware')
 
 const router = require('express').Router()
 
-router.get('/analytics/admin', authorization, authorizeRoles('vendor'), revenuePerVendor)
+router.get('/analytics/revenue/admin', authorization, authorizeRoles('admin'), revenuePerVendor)
 
-router.get('/analytics/admin', authorization, authorizeRoles('admin'), topFiveProductBySales)
+router.get('/analytics/product/admin', authorization, authorizeRoles('admin'), topFiveProductBySales)
 
-router.get('/analytics/admin', authorization, authorizeRoles('admin'), averageOrderValue)
+router.get('/analytics/avg-order/admin', authorization, authorizeRoles('admin'), averageOrderValue)
 
-router.get('/analytics/vendor', authorization, authorizeRoles('admin'), dailySalesLast7Days)
+router.get('/analytics/daily-sales/vendor', authorization, authorizeRoles('vendor'), dailySalesLast7Days)
 
-router.get('/analytics/vendor', authorization, authorizeRoles('admin'), lowStockItemsForVendor)
+router.get('/analytics/low-stock/vendor', authorization, authorizeRoles('vendor'), lowStockItemsForVendor)
 
 module.exports = router

@@ -1,12 +1,13 @@
 const masterOrderModel = require("../models/master-order.model");
+const productModel = require("../models/product.model");
 const subOrderModel = require("../models/sub-order.model");
 
 const revenuePerVendor = async (req, res, next) => {
     try {
-        const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+        const thirtyDays = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
 
         const revenue = await subOrderModel.aggregate([
-            { $match: { createdAt: { $gte: thirtyDaysAgo } } },
+            { $match: { createdAt: { $gte: thirtyDays } } },
             {
                 $group: {
                     _id: "$vendorId",
@@ -67,7 +68,7 @@ const topFiveProductBySales = async (req, res, next) => {
         ]);
 
 
-        return res.status(200).send({ message: "revenue per vendor (last 30 days)", revenue })
+        return res.status(200).send({ message: "List of top 5 products", topProducts })
 
     } catch (error) {
         return res.status(500).send("Something broke, try again")
@@ -93,12 +94,17 @@ const averageOrderValue = async (req, res, next) => {
 
 const dailySalesLast7Days = async (req, res, next) => {
     try {
+        if (!req.user || !req.user._id) {
+            return res.status(401).json({ error: 'Unauthorized - No user info found' });
+        }
+
+        // const vendorId = new mongoose.Types.ObjectId(req.user._id);
         const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
 
         const dailySales = await subOrderModel.aggregate([
             {
                 $match: {
-                    vendorId: mongoose.Types.ObjectId(req.user._id),
+                    vendorId: req.user._id,
                     createdAt: { $gte: sevenDaysAgo }
                 }
             },
@@ -113,21 +119,24 @@ const dailySalesLast7Days = async (req, res, next) => {
 
 
         return res.status(200).send({ message: "daily sales for vendor(last 7 days)", dailySales })
-    } catch (error) {
+    }
+    catch (error) {
         return res.status(500).send("Something broke, try again")
     }
 }
 
 const lowStockItemsForVendor = async (req, res, next) => {
     try {
-        const lowStockItems = await Product.find({
+        
+        const lowStockItems = await productModel.find({
             vendorId: req.user._id,
-            stock: { $lte: 5 }  
-          }).select("name stock");
-          
+            stock: { $lte: 5 }
+        }).select("name stock");
+
 
         return res.status(200).send({ message: "low stock items", lowStockItems })
-    } catch (error) {
+    } 
+    catch (error) {
         return res.status(500).send("Something broke, try again")
     }
 }
