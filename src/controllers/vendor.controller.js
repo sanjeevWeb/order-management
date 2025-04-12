@@ -1,0 +1,56 @@
+const productModel = require("../models/product.model")
+
+const addProduct = async (req, res, next) => {
+    try {
+        const newProduct = await productModel.create({...req.body, vendorId: req.user._id})
+        return res.status(201).send(newProduct)
+    } 
+    catch (error) {
+        return res.status(500).send({ message: "Something broke, PLese try after sometime"})
+    }
+}
+
+const updateProduct = async (req, res, next) => {
+    try {
+        const {id} = req.params
+        const isProductFound = await productModel.findOne({_id: id})
+        if(!isProductFound){
+            return res.status(404).send({message: "No product found"})
+            
+        }
+        if(isProductFound.vendorId !== req.user._id){
+            return res.status(401).send({message: "Unauthorized acccess"})
+            
+        }
+        const newProduct = await productModel.findByIdAndUpdate({_id:id},{...req.body}, {new:true})
+        return res.status(200).send(newProduct)
+    } 
+    catch (error) {
+        return res.status(500).send({ message: "Something broke, PLese try after sometime"})
+    }
+}
+const deleteProduct = async (req, res, next) => {
+    try {
+        const {id} = req.params
+        const isProductFound = await productModel.findOne({_id: id})
+        if(!isProductFound){
+            return res.status(404).send({message: "No product found"})
+            
+        }
+        if(isProductFound.vendorId !== req.user._id){
+            return res.status(401).send({message: "Unauthorized acccess"})
+            
+        }
+        const newProduct = await productModel.findByIdAndDelete({_id: id})
+        return res.status(201).send({message: 'This product deleted successfully'})
+    } 
+    catch (error) {
+        return res.status(500).send({ message: "Something broke, PLese try after sometime"})
+    }
+}
+
+module.exports = {
+    addProduct,
+    updateProduct,
+    deleteProduct
+}
