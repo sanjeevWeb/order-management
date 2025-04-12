@@ -1,0 +1,652 @@
+{
+	"info": {
+		"_postman_id": "7b23c06d-e8cc-45af-a3a8-2ad9e841693f",
+		"name": "V-patrol_APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29795181"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"user7\",\r\n    \"email\":\"user7@test.com\",\r\n    \"password\": \"12345\",\r\n    \"role\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"signup"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"user7\",\r\n    \"email\":\"user7@test.com\",\r\n    \"password\": \"12345\",\r\n    \"role\": \"admin\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/signup",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"signup"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "253"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"fd-a0RcvmPaYjh3YwogmdZfHUWgEXY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 12 Apr 2025 02:41:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"username\": \"user7\",\n    \"email\": \"user7@test.com\",\n    \"password\": \"$2b$10$.ALzZOWOYc0teLSh2Y6c/O0CHyBKayN.lZlISmDMdlG1n5oatKUL2\",\n    \"role\": \"admin\",\n    \"_id\": \"67f9d2dc4aec85e0a38a1c1e\",\n    \"createdAt\": \"2025-04-12T02:41:32.260Z\",\n    \"updatedAt\": \"2025-04-12T02:41:32.260Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"user4@test.com\",\r\n    \"password\":\"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "customer",
+			"item": [
+				{
+					"name": "place-order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y5ZDFkZWU1YjRjMGI5NDg4NGYxYjEiLCJyb2xlIjoiY3VzdG9tZXIiLCJpYXQiOjE3NDQ0NDM0NTcsImV4cCI6MTc0NDUyOTg1N30.UGUDSLgtu34_GPtBnQZEzkaJMOO5m2jmK-du5UY03wI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"items\": [\r\n    {\r\n      \"productId\": \"67f9f4c728c50d2ff6852971\",\r\n      \"quantity\": 20\r\n    },\r\n    {\r\n      \"productId\": \"67fa056d2940d6eaead2cf8c\",\r\n      \"quantity\": 50\r\n    }\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"order"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y5ZDFkZWU1YjRjMGI5NDg4NGYxYjEiLCJyb2xlIjoiY3VzdG9tZXIiLCJpYXQiOjE3NDQ0NDM0NTcsImV4cCI6MTc0NDUyOTg1N30.UGUDSLgtu34_GPtBnQZEzkaJMOO5m2jmK-du5UY03wI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"items\": [\r\n    {\r\n      \"productId\": \"67f9f4c728c50d2ff6852971\",\r\n      \"quantity\": 20\r\n    },\r\n    {\r\n      \"productId\": \"67fa056d2940d6eaead2cf8c\",\r\n      \"quantity\": 50\r\n    }\r\n  ]\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/order",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"order"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "82"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"52-AfFhLvaLS2y5txATnq+i19ks9yI\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 12 Apr 2025 07:37:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Order placed successfully\",\n    \"masterOrderId\": \"67fa18519c2df03a2d47c731\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "vendor",
+			"item": [
+				{
+					"name": "add-product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y5ZDIwNmU1YjRjMGI5NDg4NGYxYjUiLCJyb2xlIjoidmVuZG9yIiwiaWF0IjoxNzQ0NDM0MTQ0LCJleHAiOjE3NDQ1MjA1NDR9.PvAYqKXTzLhAc9Z7Sob-juqCH5VgBeFoONv2khYVxn8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Product 1\",\r\n    \"price\": 2345,\r\n    \"stock\": 50,\r\n    \"category\": \"electronics\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"product"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y5ZDIwNmU1YjRjMGI5NDg4NGYxYjUiLCJyb2xlIjoidmVuZG9yIiwiaWF0IjoxNzQ0NDM0MTQ0LCJleHAiOjE3NDQ1MjA1NDR9.PvAYqKXTzLhAc9Z7Sob-juqCH5VgBeFoONv2khYVxn8",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Product 1\",\r\n    \"price\": 2345,\r\n    \"stock\": 50,\r\n    \"category\": \"electronics\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/product",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"product"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "226"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e2-kOt0N/W4LewwAtthAXCX07qgPqg\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 12 Apr 2025 05:04:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Product 1\",\n    \"price\": 2345,\n    \"stock\": 50,\n    \"vendorId\": \"67f9d206e5b4c0b94884f1b5\",\n    \"category\": \"electronics\",\n    \"_id\": \"67f9f46928c50d2ff685296b\",\n    \"createdAt\": \"2025-04-12T05:04:41.885Z\",\n    \"updatedAt\": \"2025-04-12T05:04:41.885Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "update-product",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y5ZDIwNmU1YjRjMGI5NDg4NGYxYjUiLCJyb2xlIjoidmVuZG9yIiwiaWF0IjoxNzQ0NDM4NDg2LCJleHAiOjE3NDQ1MjQ4ODZ9.DjIwFUGZEh9x61iukJD4U0WsYmDa4FkGTFdG39YDAJo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Product ec2\",\r\n    \"price\": 250,\r\n    \"stock\": 750,\r\n    \"category\": \"hardware\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/product/67f9f54f28c50d2ff6852974",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"product",
+								"67f9f54f28c50d2ff6852974"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "response",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y5ZDIwNmU1YjRjMGI5NDg4NGYxYjUiLCJyb2xlIjoidmVuZG9yIiwiaWF0IjoxNzQ0NDM4NDg2LCJleHAiOjE3NDQ1MjQ4ODZ9.DjIwFUGZEh9x61iukJD4U0WsYmDa4FkGTFdG39YDAJo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Product ec2\",\r\n    \"price\": 250,\r\n    \"stock\": 750,\r\n    \"category\": \"hardware\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/product/67f9f54f28c50d2ff6852974",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"product",
+										"67f9f54f28c50d2ff6852974"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "225"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e1-JHnDkU3R5jZ4hMVLlbbjD4L5oMA\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 12 Apr 2025 06:24:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"67f9f54f28c50d2ff6852974\",\n    \"name\": \"Product ec2\",\n    \"price\": 250,\n    \"stock\": 750,\n    \"vendorId\": \"67f9d206e5b4c0b94884f1b5\",\n    \"category\": \"hardware\",\n    \"createdAt\": \"2025-04-12T05:08:31.506Z\",\n    \"updatedAt\": \"2025-04-12T06:24:50.881Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "delete-product",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y5ZDIwNmU1YjRjMGI5NDg4NGYxYjUiLCJyb2xlIjoidmVuZG9yIiwiaWF0IjoxNzQ0NDM4NDg2LCJleHAiOjE3NDQ1MjQ4ODZ9.DjIwFUGZEh9x61iukJD4U0WsYmDa4FkGTFdG39YDAJo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/product/67f9f54f28c50d2ff6852974",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"product",
+								"67f9f54f28c50d2ff6852974"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "analytics",
+			"item": [
+				{
+					"name": "admin-revenue-report",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y5ZDJkYzRhZWM4NWUwYTM4YTFjMWUiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDQ0NDM3NjMsImV4cCI6MTc0NDUzMDE2M30.b5WMeYnhX7bk2r7y-l5dn_Cppd3BUKXQhMI-fZizrHk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/analytics/revenue/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"analytics",
+								"revenue",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin-max-product-report",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y5ZDJkYzRhZWM4NWUwYTM4YTFjMWUiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDQ0NDM3NjMsImV4cCI6MTc0NDUzMDE2M30.b5WMeYnhX7bk2r7y-l5dn_Cppd3BUKXQhMI-fZizrHk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/analytics/product/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"analytics",
+								"product",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin-avg-order-report",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y5ZDJkYzRhZWM4NWUwYTM4YTFjMWUiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDQ0NDM3NjMsImV4cCI6MTc0NDUzMDE2M30.b5WMeYnhX7bk2r7y-l5dn_Cppd3BUKXQhMI-fZizrHk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/analytics/avg-order/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"analytics",
+								"avg-order",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "vendor-daily-sales",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y5ZDIwNmU1YjRjMGI5NDg4NGYxYjUiLCJyb2xlIjoidmVuZG9yIiwiaWF0IjoxNzQ0NDQ0MjQzLCJleHAiOjE3NDQ1MzA2NDN9.tGrgVZ4-dv4DwJaTURWDRnNk0ZcXwAy9yN9fo9OSo6w",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/analytics/daily-sales/vendor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"analytics",
+								"daily-sales",
+								"vendor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "vendor-low-stock-items",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2Y5ZDIwNmU1YjRjMGI5NDg4NGYxYjUiLCJyb2xlIjoidmVuZG9yIiwiaWF0IjoxNzQ0NDQ0MjQzLCJleHAiOjE3NDQ1MzA2NDN9.tGrgVZ4-dv4DwJaTURWDRnNk0ZcXwAy9yN9fo9OSo6w",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/analytics/low-stock/vendor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"analytics",
+								"low-stock",
+								"vendor"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
