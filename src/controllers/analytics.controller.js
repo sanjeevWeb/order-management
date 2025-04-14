@@ -33,7 +33,8 @@ const revenuePerVendor = async (req, res, next) => {
 
         return res.status(200).send({ message: "revenue per vendor (last 30 days)", revenue })
 
-    } catch (error) {
+    }
+     catch (error) {
         return res.status(500).send("Something broke, try again")
     }
 }
@@ -70,7 +71,8 @@ const topFiveProductBySales = async (req, res, next) => {
 
         return res.status(200).send({ message: "List of top 5 products", topProducts })
 
-    } catch (error) {
+    } 
+    catch (error) {
         return res.status(500).send("Something broke, try again")
     }
 }
@@ -87,7 +89,8 @@ const averageOrderValue = async (req, res, next) => {
         ]);
 
         return res.status(200).send({ message: "average order value", avgOrderValue })
-    } catch (error) {
+    } 
+    catch (error) {
         return res.status(500).send("Something broke, try again")
     }
 }

@@ -5,7 +5,7 @@ const { createProductSchema } = require('../validations/vendor.validation')
 
 const router = require('express').Router()
 
-router.post('/product', createProductSchema, authorization, authorizeRoles('vendor'), addProduct)
+router.post('/product', authorization, authorizeRoles('vendor'), addProduct)
 
 router.put('/product/:id', authorization, authorizeRoles('vendor'), updateProduct)
 
